@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-901 Study Studio — Microsoft Azure AI Fundamentals Prep &amp; Foundry Lab</title>
+  <meta
+    name="description"
+    content="Interactive study guides, spaced-repetition flashcards, timed practice exams, and a dual-mode Microsoft Foundry lab for Microsoft Certification Exam AI-901: Azure AI Fundamentals."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="app-header" id="app-header">
+    <div class="header-inner">
+      <div class="brand" id="brand-home" role="button" tabindex="0" aria-label="AI-901 Study Studio Home">
+        <span class="brand-mark" aria-hidden="true">901</span>
+        <div class="brand-text">
+          <span class="brand-title">AI-901 Study Studio</span>
+          <span class="brand-subtitle">Azure AI Fundamentals &amp; Microsoft Foundry</span>
+        </div>
+      </div>
+
+      <nav class="primary-nav" aria-label="Main Navigation" id="primary-nav">
+        <button class="nav-tab is-active" data-view="guides" id="nav-guides" type="button">
+          Study Guides
+        </button>
+        <button class="nav-tab" data-view="flashcards" id="nav-flashcards" type="button">
+          Flashcards
+        </button>
+        <button class="nav-tab" data-view="exam" id="nav-exam" type="button">
+          Practice Exam
+        </button>
+        <button class="nav-tab" data-view="sandbox" id="nav-sandbox" type="button">
+          Foundry Sandbox
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="readiness-chip" id="header-readiness" title="Overall AI-901 study readiness">
+          <span class="readiness-label">Readiness</span>
+          <span class="readiness-value" id="readiness-percent">0%</span>
+        </div>
+        <button
+          class="mode-pill"
+          id="mode-status-btn"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="status-modal"
+          title="Inspect Microsoft Foundry / Azure dual-mode connection status"
+        >
+          <span class="mode-dot" id="mode-dot" aria-hidden="true"></span>
+          <span id="mode-label">Demo Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main" id="app-main">
+    <div class="loading-state" id="loading-state">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading AI-901 curriculum and Microsoft Foundry status…</p>
+    </div>
+
+    <section class="view-section is-hidden" id="view-guides" aria-labelledby="guides-heading"></section>
+    <section class="view-section is-hidden" id="view-flashcards" aria-labelledby="flashcards-heading"></section>
+    <section class="view-section is-hidden" id="view-exam" aria-labelledby="exam-heading"></section>
+    <section class="view-section is-hidden" id="view-sandbox" aria-labelledby="sandbox-heading"></section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <p>
+        Aligned to <strong>Exam AI-901: Microsoft Azure AI Fundamentals</strong> (Domain 1: 40–45% · Domain 2: 55–60% · Pass: 700/1000).
+      </p>
+      <p class="footer-meta">
+        Dual-Mode Studio · Runs locally in Demo Mode or live via <code>.env</code> Microsoft Foundry credentials.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Dual-Mode Connection Status Modal -->
+  <div class="modal-backdrop is-hidden" id="status-modal" role="dialog" aria-modal="true" aria-labelledby="status-modal-title">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <h2 id="status-modal-title">Microsoft Foundry Dual-Mode Status</h2>
+          <p class="modal-subtitle">
+            Each AI-901 workload automatically switches from Demo Simulator to Live Azure SDK when its <code>.env</code> credentials are present.
+          </p>
+        </div>
+        <button class="icon-btn" id="close-status-modal" type="button" aria-label="Close status dialog">&times;</button>
+      </div>
+      <div class="modal-body" id="status-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="refresh-status-btn" type="button">Refresh Status</button>
+        <button class="btn btn-primary" id="done-status-modal" type="button">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast is-hidden" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
